@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { AuthApi } from "../Shared/Api";
+import { AuthApi } from "react";
+// import axios from 'axios';
 
 function LogIn() {
   const [email, setEmail] = useState({
@@ -34,7 +35,7 @@ function LogIn() {
       alert("Log in!");
 
       try {
-        const res = await AuthApi.signin({
+        const res = await AuthApi.login({
           email: email.value,
           password: password.value,
         });
@@ -42,6 +43,20 @@ function LogIn() {
       } catch (err) {
         console.log(err);
       }
+
+
+      // axios
+      //     .post(
+      //       "http://localhost:3001", // 미리 약속한 주소
+      //       { email:email.value, password:password.value }, // 서버가 필요로 하는 데이터를 넘겨주고,
+      //       { headers: {} } // 누가 요청했는 지 알려줍니다. (config에서 해요!)
+      //     )
+      //     .then(function (response) {
+      //       console.log(response);
+      //     })
+      //     .catch(function (error) {
+      //       console.log(error);
+      //     });
     } else {
       alert("Please enter your email and password.");
       return;

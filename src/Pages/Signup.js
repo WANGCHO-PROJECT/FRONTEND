@@ -42,6 +42,7 @@ function Signup () {
   };
 
   const validateSignUpData = () => {
+    //유효성 검사결과 
     const isEmailValid = emailRegex.test(email.value);
     const isNicknameValid = nicknameRegex.test(nickname.value);
     const isPasswordValid = passwordRegex.test(password.value);
@@ -52,7 +53,9 @@ function Signup () {
     setPassword((prevPassword) => ({ ...prevPassword, err: !isPasswordValid }));
     setConfirmPassword((prevConfimPw) => ({ ...prevConfimPw, err: !doPasswordsMatch }));
 
-    return isEmailValid && isNicknameValid && isPasswordValid && doPasswordsMatch;
+    return !isEmailValid || !isNicknameValid || !isPasswordValid || !doPasswordsMatch
+      ? false
+      : true;
   };
 
   const handleSubmit = async () => {
@@ -65,12 +68,15 @@ function Signup () {
           nickname: nickname.value, 
           password: password.value,
         });
-        console.log(res);
-        
+        alert(res.data.message);
+        // Navigate("/")
       } catch (err) {
-        console.log(err);
+        alert(err.response.data.errorMessage);
       }
+      return;
+
     } else {
+
       return;
     }
   };

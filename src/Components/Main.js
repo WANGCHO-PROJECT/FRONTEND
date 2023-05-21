@@ -3,7 +3,7 @@ import Header from './Header';
 import Form from './Form';
 import GlobalStyle from '../GlobalStyle';
 import styled from 'styled-components';
-// import Posts from '../Pages/Posts';
+import Posts from '../Pages/Posts';
 
 function Main() {
   return (
@@ -12,7 +12,7 @@ function Main() {
       <Wrap>
         <Header />
         <Form />
-        {/* <Posts /> */}
+        <Posts />
       </Wrap>
     </>
   );

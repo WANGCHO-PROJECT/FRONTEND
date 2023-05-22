@@ -23,7 +23,7 @@ function Test() {
     console.log('Submitted comment:', comment);
     setComment('');
   };
-
+  
   return (
     <>
       <GlobalStyle />
@@ -31,11 +31,11 @@ function Test() {
         <Section>
           <InfoDiv>
             <span>ID : {foundData.id}</span>
-            <Button onClick={() => navigate('/')}>이전으로</Button>
+            <Button onClick={() => navigate('/Posts')}>이전으로</Button>
           </InfoDiv>
           <div>
             <h1>{foundData.title}</h1>
-            <p>{foundData.body}</p>
+            <p>{foundData.content}</p>
           </div>
           <CommentForm onSubmit={handleSubmitComment}>
             <label>

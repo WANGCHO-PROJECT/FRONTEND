@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { AuthApi } from "react";
-// import axios from 'axios';
+import { AuthApi } from "../Shared/Api";
 
 function LogIn() {
   const [email, setEmail] = useState({
@@ -43,20 +42,6 @@ function LogIn() {
       } catch (err) {
         console.log(err);
       }
-
-
-      // axios
-      //     .post(
-      //       "http://localhost:3001", // 미리 약속한 주소
-      //       { email:email.value, password:password.value }, // 서버가 필요로 하는 데이터를 넘겨주고,
-      //       { headers: {} } // 누가 요청했는 지 알려줍니다. (config에서 해요!)
-      //     )
-      //     .then(function (response) {
-      //       console.log(response);
-      //     })
-      //     .catch(function (error) {
-      //       console.log(error);
-      //     });
     } else {
       alert("Please enter your email and password.");
       return;
@@ -65,30 +50,34 @@ function LogIn() {
 
   return (
     <Container>
-      <Heading>Log In</Heading>
-      <Label>Email</Label>
-      <StyledInput
-        type="text"
-        value={email.value}
-        placeholder="Type your Email"
-        onChange={onEmailChangeHandler}
-      />
-      <Label>Password</Label>
-      <StyledInput
-        type="password"
-        value={password.value}
-        placeholder="Type your Password"
-        onChange={onPasswordChangeHandler}
-      />
-      <ButtonContainer>
-        <SubmitButton onClick={onSubmitHandler}>Log In</SubmitButton>
-        <StyledLink to={"/signup"}>
-          <Button>Sign Up</Button>
-        </StyledLink>
-        <StyledLink to={"/"}>
-          <Button>Go Back</Button>
-        </StyledLink>
-      </ButtonContainer>
+      <h1>왕초 WORLD 입장하기</h1>
+      <Form>
+        <Label>Email</Label>
+        <Input
+          type="text"
+          value={email.value}
+          placeholder="Type your Email"
+          onChange={onEmailChangeHandler}
+        />
+        <Label>Password</Label>
+        <Input
+          type="password"
+          value={password.value}
+          placeholder="Type your Password"
+          onChange={onPasswordChangeHandler}
+        />
+        <ButtonContainer>
+          <Button type="submit" onClick={onSubmitHandler}>
+            Log In
+          </Button>
+          <Link to={"/signup"}>
+            <Button type="button">Sign Up</Button>
+          </Link>
+          <Link to={"/"}>
+            <Button type="button">Go Back</Button>
+          </Link>
+        </ButtonContainer>
+      </Form>
     </Container>
   );
 }
@@ -96,57 +85,57 @@ function LogIn() {
 export default LogIn;
 
 const Container = styled.div`
-  max-width: 1200px;
-  margin: 15px auto;
+  max-width: 400px;
+  margin: 0 auto;
   padding: 20px;
+
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
   flex-direction: column;
+  align-items: center;
+
   border: 3px solid black;
+  border-radius: 5px;
+  background-color: #f8f8f8;
 `;
 
-const Heading = styled.h1`
-  margin-bottom: 10px;
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 `;
 
 const Label = styled.label`
-  margin-bottom: 5px;
+  font-weight: bold;
 `;
 
-const StyledInput = styled.input`
-  margin-bottom: 10px;
-  padding: 8px;
+const Input = styled.input`
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  outline: none;
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
-  gap: 5px;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 `;
 
 const Button = styled.button`
-  margin-top: 10px;
-  padding: 8px 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
   background-color: #007bff;
   color: #fff;
+  font-weight: bold;
   border: none;
-  border-radius: 4px;
+  outline: none;
   cursor: pointer;
+
   &:hover {
     background-color: #0056b3;
   }
-`;
-
-const SubmitButton = styled(Button)`
-  background-color: #28a745;
-  &:hover {
-    background-color: #1e7e34;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  margin-top: 10px;
 `;

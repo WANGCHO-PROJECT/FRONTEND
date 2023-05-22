@@ -1,33 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import { styled } from "styled-components";
+import Nav from "./Nav";
 
 function Header() {
   return (
-    <Section>
-        <HeaderItems>
-        <Link to = "/">왕초닷컴</Link>
-        </HeaderItems>
-      <HeaderItems>
-          <Link to = "/login">로그인</Link>
-        </HeaderItems>
-      <HeaderItems>
-      <Link to = "/signup">회원가입</Link>
-        </HeaderItems>
-      <HeaderName>3조</HeaderName>
-    </Section>
-  )
+    <StHeaderBox>
+      <h1> 왕초닷컴 - 지출을 공유해보세요 </h1>
+      <Nav />
+    </StHeaderBox>
+  );
 }
 
-export default Header
+export default Header;
 
-const Section = styled.section`
-  margin: 15px 20px;
+const StHeaderBox = styled.div`
+  padding: 15px;
+  margin: 20px;
+  border: 3px solid black;
 `;
-
-const HeaderName = styled.span`
-  float: right;
-`
-const HeaderItems = styled.span`
-  align-item: center;
-  padding: 20px;`

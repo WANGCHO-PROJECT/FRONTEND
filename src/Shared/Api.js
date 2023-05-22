@@ -15,4 +15,5 @@ export const AuthApi = {
     signup: (payload)=> api.post('/api/signup', payload),
     login: (payload)=> api.post('/api/login', payload),
     
+    
 }

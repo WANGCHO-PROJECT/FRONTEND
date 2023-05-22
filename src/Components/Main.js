@@ -1,9 +1,10 @@
 import React from 'react';
 import Header from './Header';
-import Form from './Form';
+// import Form from './Form';
 import GlobalStyle from '../GlobalStyle';
 import styled from 'styled-components';
 import Posts from '../Pages/Posts';
+
 
 function Main() {
   return (
@@ -11,7 +12,7 @@ function Main() {
       <GlobalStyle />
       <Wrap>
         <Header />
-        <Form />
+        {/* <Form /> */}
         <Posts />
       </Wrap>
     </>

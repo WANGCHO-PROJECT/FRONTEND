@@ -1,19 +1,14 @@
 import React from 'react';
-import Header from './Header';
-// import Form from './Form';
 import GlobalStyle from '../GlobalStyle';
 import styled from 'styled-components';
-import Posts from '../Pages/Posts';
-
+import MainPage from '../Pages/MainPage';
 
 function Main() {
   return (
     <>
       <GlobalStyle />
       <Wrap>
-        <Header />
-        {/* <Form /> */}
-        <Posts />
+        <MainPage />
       </Wrap>
     </>
   );
